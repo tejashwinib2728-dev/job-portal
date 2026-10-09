@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobSphere - Premium Job Portal</title>
+  <meta name="description" content="Discover premium jobs, SaaS career pathways, and connect with elite employers on JobSphere.">
+  
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top glass-navbar py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <i class="bi bi-globe-americas me-2 text-primary"></i>
+        <span>JobSphere</span>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="bi bi-list fs-2 text-main"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/jobs.html">Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/contact.html">Contact</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center gap-2">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="theme-toggle me-2" aria-label="Toggle dark/light mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+          
+          <!-- Authentication links (controlled via main.js) -->
+          <div id="auth-nav-container" class="d-flex align-items-center">
+            <a href="html/login.html" class="btn-premium-secondary me-2">Login</a>
+            <a href="html/register.html" class="btn-premium-primary">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-center text-lg-start d-flex align-items-center">
+    <div id="canvas-container"></div>
+    <div class="container z-3">
+      <div class="row align-items-center min-vh-100 py-5">
+        <div class="col-lg-6 mb-5 mb-lg-0 text-start">
+          <h1 class="display-3 fw-extrabold mb-3 hero-title text-main">
+            <span class="d-block text-primary">Next-Gen</span>
+            <span class="d-block">Career Spheres</span>
+            <span class="d-block text-accent">Await You.</span>
+          </h1>
+          <p class="lead text-muted mb-4 hero-subtitle">
+            Navigate through thousands of high-paying tech, design, and product jobs. Powered by interactive data mapping and premium visual filters.
+          </p>
+          
+          <!-- Search Box -->
+          <div class="glass-card hero-search-box p-3 mb-4">
+            <div class="row g-2 align-items-center">
+              <div class="col-md-5">
+                <div class="input-group">
+                  <span class="input-group-text bg-transparent border-0 text-primary"><i class="bi bi-search"></i></span>
+                  <input type="text" id="search-title" class="form-control bg-transparent border-0 text-main" placeholder="Job title or keyword..." aria-label="Job title">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group border-start-md">
+                  <span class="input-group-text bg-transparent border-0 text-primary"><i class="bi bi-geo-alt"></i></span>
+                  <input type="text" id="search-location" class="form-control bg-transparent border-0 text-main" placeholder="City or Remote..." aria-label="Location">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-premium-primary w-100 py-3" id="hero-search-btn">Find Jobs</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hero-cta-buttons">
+            <a href="html/jobs.html" class="btn btn-premium-primary me-2">Explore Directory</a>
+            <a href="html/about.html" class="btn btn-premium-secondary">Learn More</a>
+          </div>
+        </div>
+        
+        <!-- Right side floating graphics placeholder (Three.js will render in background, but we can add a container with soft visual elements) -->
+        <div class="col-lg-6 d-none d-lg-block position-relative">
+          <div class="floating-element bg-primary bg-opacity-10 border border-primary border-opacity-25 rounded-circle position-absolute" style="width: 280px; height: 280px; top: -120px; right: 80px; filter: blur(40px);"></div>
+          <div class="floating-element-delay bg-accent bg-opacity-10 border border-accent border-opacity-25 rounded-circle position-absolute" style="width: 320px; height: 320px; bottom: -180px; left: 40px; filter: blur(50px);"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted Companies Section -->
+  <section class="logo-slider py-5 bg-color">
+    <div class="logo-track">
+      <div class="logo-item"><i class="bi bi-google text-danger"></i>Google</div>
+      <div class="logo-item"><i class="bi bi-microsoft text-primary"></i>Microsoft</div>
+      <div class="logo-item"><i class="bi bi-apple text-dark"></i>Apple</div>
+      <div class="logo-item"><i class="bi bi-meta text-primary"></i>Meta</div>
+      <div class="logo-item"><i class="bi bi-nvidia text-success"></i>NVIDIA</div>
+      <div class="logo-item"><i class="bi bi-credit-card text-info"></i>Stripe</div>
+      <div class="logo-item"><i class="bi bi-bezier2 text-warning"></i>Figma</div>
+      <div class="logo-item"><i class="bi bi-music-note-beamed text-success"></i>Spotify</div>
+      
+      <!-- Duplicate for infinite looping -->
+      <div class="logo-item"><i class="bi bi-google text-danger"></i>Google</div>
+      <div class="logo-item"><i class="bi bi-microsoft text-primary"></i>Microsoft</div>
+      <div class="logo-item"><i class="bi bi-apple text-dark"></i>Apple</div>
+      <div class="logo-item"><i class="bi bi-meta text-primary"></i>Meta</div>
+      <div class="logo-item"><i class="bi bi-nvidia text-success"></i>NVIDIA</div>
+      <div class="logo-item"><i class="bi bi-credit-card text-info"></i>Stripe</div>
+      <div class="logo-item"><i class="bi bi-bezier2 text-warning"></i>Figma</div>
+      <div class="logo-item"><i class="bi bi-music-note-beamed text-success"></i>Spotify</div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section id="stats-section" class="py-5 my-5">
+    <div class="container">
+      <div class="row g-4 justify-content-center text-center">
+        <div class="col-lg-3 col-6" data-aos="fade-up">
+          <div class="glass-card stat-card">
+            <div class="stat-number" id="counter-jobs">0+</div>
+            <div class="stat-label">Active Jobs</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card stat-card">
+            <div class="stat-number" id="counter-companies">0+</div>
+            <div class="stat-label">Premium Companies</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card stat-card">
+            <div class="stat-number" id="counter-candidates">0+</div>
+            <div class="stat-label">Happy Candidates</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card stat-card">
+            <div class="stat-number" id="counter-applications">0+</div>
+            <div class="stat-label">Daily Submissions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Categories Section -->
+  <section class="py-5 bg-opacity-25 bg-light">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Categories</span>
+        <h2 class="display-5 fw-bold text-main">Explore Popular Spheres</h2>
+        <p class="text-muted">Choose your desired category and access high value career paths.</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up">
+          <a href="html/jobs.html?category=tech" class="glass-card p-4 d-block text-decoration-none text-main h-100">
+            <i class="bi bi-laptop fs-1 text-primary d-block mb-3"></i>
+            <h5 class="fw-bold mb-2">Technology</h5>
+            <span class="text-muted small">142 Openings</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <a href="html/jobs.html?category=design" class="glass-card p-4 d-block text-decoration-none text-main h-100">
+            <i class="bi bi-palette fs-1 text-secondary d-block mb-3"></i>
+            <h5 class="fw-bold mb-2">Creative & Design</h5>
+            <span class="text-muted small">85 Openings</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <a href="html/jobs.html?category=marketing" class="glass-card p-4 d-block text-decoration-none text-main h-100">
+            <i class="bi bi-megaphone fs-1 text-accent d-block mb-3"></i>
+            <h5 class="fw-bold mb-2">Marketing & Sales</h5>
+            <span class="text-muted small">98 Openings</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <a href="html/jobs.html?category=finance" class="glass-card p-4 d-block text-decoration-none text-main h-100">
+            <i class="bi bi-cash-coin fs-1 text-success d-block mb-3"></i>
+            <h5 class="fw-bold mb-2">Finance & Accounting</h5>
+            <span class="text-muted small">64 Openings</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5" data-aos="fade-up">
+        <a href="html/jobs.html" class="btn btn-premium-secondary">View All Categories <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Skills Section -->
+  <section class="py-5 bg-light bg-opacity-10">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Trends</span>
+        <h2 class="display-6 fw-bold text-main">Trending Competencies</h2>
+        <p class="text-muted">High demand skill spheres that employers are actively indexing.</p>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-center gap-3" data-aos="fade-up">
+        <div class="skill-tag-bubble glass-card px-4 py-2.5 d-flex align-items-center gap-2" style="cursor: pointer; border-radius: 30px;">
+          <i class="bi bi-cpu text-primary"></i>
+          <span class="fw-bold fs-7">Generative AI</span>
+          <span class="badge bg-primary rounded-pill bg-opacity-15 text-primary fs-9">Hot</span>
+        </div>
+        <div class="skill-tag-bubble glass-card px-4 py-2.5 d-flex align-items-center gap-2" style="cursor: pointer; border-radius: 30px;">
+          <i class="bi bi-file-code text-secondary"></i>
+          <span class="fw-bold fs-7">React / Next.js</span>
+          <span class="badge bg-secondary rounded-pill bg-opacity-15 text-secondary fs-9">140+ roles</span>
+        </div>
+        <div class="skill-tag-bubble glass-card px-4 py-2.5 d-flex align-items-center gap-2" style="cursor: pointer; border-radius: 30px;">
+          <i class="bi bi-shield-check text-success"></i>
+          <span class="fw-bold fs-7">Cybersecurity</span>
+          <span class="badge bg-success rounded-pill bg-opacity-15 text-success fs-9">Top Paid</span>
+        </div>
+        <div class="skill-tag-bubble glass-card px-4 py-2.5 d-flex align-items-center gap-2" style="cursor: pointer; border-radius: 30px;">
+          <i class="bi bi-cloud text-info"></i>
+          <span class="fw-bold fs-7">Kubernetes</span>
+          <span class="badge bg-info rounded-pill bg-opacity-15 text-info fs-9">Active</span>
+        </div>
+        <div class="skill-tag-bubble glass-card px-4 py-2.5 d-flex align-items-center gap-2" style="cursor: pointer; border-radius: 30px;">
+          <i class="bi bi-bezier text-warning"></i>
+          <span class="fw-bold fs-7">Figma / UX</span>
+          <span class="badge bg-warning rounded-pill bg-opacity-15 text-warning fs-9">Design</span>
+        </div>
+        <div class="skill-tag-bubble glass-card px-4 py-2.5 d-flex align-items-center gap-2" style="cursor: pointer; border-radius: 30px;">
+          <i class="bi bi-code-square text-danger"></i>
+          <span class="fw-bold fs-7">TypeScript</span>
+          <span class="badge bg-danger rounded-pill bg-opacity-15 text-danger fs-9">Standard</span>
+        </div>
+        <div class="skill-tag-bubble glass-card px-4 py-2.5 d-flex align-items-center gap-2" style="cursor: pointer; border-radius: 30px;">
+          <i class="bi bi-database text-primary"></i>
+          <span class="fw-bold fs-7">PostgreSQL</span>
+          <span class="badge bg-primary rounded-pill bg-opacity-15 text-primary fs-9">SQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Jobs Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Opportunities</span>
+        <h2 class="display-5 fw-bold text-main">Featured Careers</h2>
+        <p class="text-muted">Handpicked high-quality listings selected directly for elite developers and managers.</p>
+      </div>
+      
+      <div class="row" id="featured-jobs-container">
+        <!-- Rendered dynamically by home.js -->
+      </div>
+      
+      <div class="text-center mt-4" data-aos="fade-up">
+        <a href="html/jobs.html" class="btn btn-premium-primary">View Full Job Board</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Freshers Careers Section -->
+  <section class="py-5 bg-opacity-25 bg-light border-top border-color">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Freshers</span>
+        <h2 class="display-5 fw-bold text-main">Latest Jobs for Freshers</h2>
+        <p class="text-muted">Start your SaaS career path with zero years of experience required. Learn and grow inside elite teams.</p>
+      </div>
+
+      <div class="row animate-fresher-cards" id="freshers-jobs-container">
+        <!-- Rendered dynamically by home.js -->
+      </div>
+      
+      <div class="text-center mt-4" data-aos="fade-up">
+        <a href="html/jobs.html" class="btn btn-premium-secondary">View All Entry Level Careers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- PREMIUM MEMBERSHIP SECTION                     -->
+  <!-- ============================================== -->
+  <section class="py-5 bg-light bg-opacity-10 border-top border-bottom border-color" id="premium-membership">
+    <div class="container">
+      
+      <!-- HERO SECTION -->
+      <div class="text-center mb-5 max-width-lg mx-auto">
+        <h2 class="display-5 fw-bold mb-3 text-main">Upgrade to Premium Membership</h2>
+        <h4 class="text-primary mb-4">Increase Your Chances of Getting Shortlisted</h4>
+        <p class="text-muted fs-5 mb-4">Premium members receive better recruiter visibility, premium job access, placement drive invitations, and priority consideration from employers.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-4 text-muted fs-6">
+          <span><i class="bi bi-check-circle-fill text-success me-1"></i> Apply to Free Jobs</span>
+          <span><i class="bi bi-check-circle-fill text-success me-1"></i> Apply to Premium and Hot Jobs</span>
+          <span><i class="bi bi-check-circle-fill text-success me-1"></i> Appear Above Free Job Applicants</span>
+          <span><i class="bi bi-check-circle-fill text-success me-1"></i> Career Role Fitment Assessment</span>
+          <span><i class="bi bi-check-circle-fill text-success me-1"></i> Special Access to Placement Drives, Events, etc.</span>
+          <span><i class="bi bi-check-circle-fill text-success me-1"></i> Premium Candidate Support</span>
+        </div>
+        <a href="#premium-plans" class="btn btn-premium-primary btn-lg px-5 py-3 fw-bold">Upgrade Now</a>
+      </div>
+
+      <!-- COMPARISON TABLE -->
+      <div class="glass-card p-4 p-md-5 mb-5 overflow-auto" style="border: 2px solid var(--primary-color);">
+        <h3 class="fw-bold mb-4 text-center text-main">Free Member vs Premium Member</h3>
+        <table class="table table-borderless text-center align-middle premium-comparison-table mb-0">
+          <thead>
+            <tr class="border-bottom border-color">
+              <th scope="col" class="text-start pb-4 fs-5 w-40">Features</th>
+              <th scope="col" class="pb-4 fs-5 text-muted">Free Jobs</th>
+              <th scope="col" class="pb-4 fs-5 text-primary position-relative" style="background: rgba(var(--bs-primary-rgb), 0.05); border-radius: 10px 10px 0 0; border: 2px solid var(--primary-color); border-bottom: none;">
+                <span class="position-absolute top-0 start-50 translate-middle badge bg-warning text-dark px-3 py-1 fs-8 rounded-pill">MOST CHOSEN</span>
+                Premium 6 Months
+              </th>
+              <th scope="col" class="pb-4 fs-5 text-main">Premium 1 Year</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted fs-6">
+            <tr class="border-bottom border-color">
+              <td class="text-start py-3 fw-semibold text-main">Apply to Free Jobs</td>
+              <td class="py-3">✔</td>
+              <td class="py-3 fw-bold text-success" style="background: rgba(var(--bs-primary-rgb), 0.05); border-left: 2px solid var(--primary-color); border-right: 2px solid var(--primary-color);">✔</td>
+              <td class="py-3">✔</td>
+            </tr>
+            <tr class="border-bottom border-color">
+              <td class="text-start py-3 fw-semibold text-main">Apply to Premium and Hot Jobs</td>
+              <td class="py-3 opacity-50">✖</td>
+              <td class="py-3 fw-bold text-success" style="background: rgba(var(--bs-primary-rgb), 0.05); border-left: 2px solid var(--primary-color); border-right: 2px solid var(--primary-color);">✔</td>
+              <td class="py-3">✔</td>
+            </tr>
+            <tr class="border-bottom border-color">
+              <td class="text-start py-3 fw-semibold text-main">Appear Above Free Job Applicants</td>
+              <td class="py-3 opacity-50">✖</td>
+              <td class="py-3 fw-bold text-success" style="background: rgba(var(--bs-primary-rgb), 0.05); border-left: 2px solid var(--primary-color); border-right: 2px solid var(--primary-color);">✔</td>
+              <td class="py-3">✔</td>
+            </tr>
+            <tr class="border-bottom border-color">
+              <td class="text-start py-3 fw-semibold text-main">Career Role Fitment Assessment</td>
+              <td class="py-3 opacity-50">✖</td>
+              <td class="py-3 fw-bold text-success" style="background: rgba(var(--bs-primary-rgb), 0.05); border-left: 2px solid var(--primary-color); border-right: 2px solid var(--primary-color);">✔</td>
+              <td class="py-3">✔</td>
+            </tr>
+            <tr class="border-bottom border-color">
+              <td class="text-start py-3 fw-semibold text-main">Special Access to Placement Drives, Events, etc.</td>
+              <td class="py-3 opacity-50">✖</td>
+              <td class="py-3 fw-bold text-success" style="background: rgba(var(--bs-primary-rgb), 0.05); border-left: 2px solid var(--primary-color); border-right: 2px solid var(--primary-color);">✔</td>
+              <td class="py-3">✔</td>
+            </tr>
+            <tr>
+              <td class="text-start py-3 fw-semibold text-main">Premium Candidate Support</td>
+              <td class="py-3 opacity-50">✖</td>
+              <td class="py-3 fw-bold text-success" style="background: rgba(var(--bs-primary-rgb), 0.05); border-radius: 0 0 10px 10px; border-left: 2px solid var(--primary-color); border-right: 2px solid var(--primary-color); border-bottom: 2px solid var(--primary-color);">✔</td>
+              <td class="py-3">✔</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MEMBERSHIP PLANS -->
+      <div id="premium-plans" class="row justify-content-center mb-5 g-4">
+        <!-- Plan 1 -->
+        <div class="col-md-6 col-lg-5">
+          <div class="glass-card p-5 text-center h-100 position-relative" style="border: 2px solid var(--primary-color); box-shadow: 0 10px 30px rgba(var(--bs-primary-rgb), 0.2);">
+            <div class="position-absolute top-0 start-50 translate-middle badge bg-warning text-dark px-4 py-2 fs-7 rounded-pill fw-bold">MOST CHOSEN</div>
+            <h3 class="fw-bold mb-1 text-main mt-3">Premium</h3>
+            <h5 class="text-muted mb-3">6 Months</h5>
+            <div class="mb-2"><span class="fs-1 fw-extrabold text-main">₹649</span></div>
+            <p class="text-muted small mb-4">(₹108/month)</p>
+            <button class="btn btn-premium-primary btn-lg w-100 py-3 fw-bold premium-upgrade-btn" data-plan="6-month" data-price="649">Upgrade Now</button>
+          </div>
+        </div>
+        <!-- Plan 2 -->
+        <div class="col-md-6 col-lg-5">
+          <div class="glass-card p-5 text-center h-100 position-relative border-color">
+            <div class="position-absolute top-0 start-50 translate-middle badge bg-success text-white px-4 py-2 fs-7 rounded-pill fw-bold">SAVE 30%</div>
+            <h3 class="fw-bold mb-1 text-main mt-3">Premium</h3>
+            <h5 class="text-muted mb-3">1 Year</h5>
+            <div class="mb-2">
+              <span class="fs-1 fw-extrabold text-main">₹899</span>
+            </div>
+            <p class="text-muted small mb-1">Old Price: <span class="text-decoration-line-through">₹1298</span></p>
+            <p class="text-muted small mb-4">Monthly equivalent: ₹75/month</p>
+            <button class="btn btn-premium-secondary btn-lg w-100 py-3 fw-bold premium-upgrade-btn" data-plan="1-year" data-price="899">Upgrade Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BENEFITS SECTION -->
+      <div class="mb-5">
+        <h3 class="fw-bold mb-4 text-center text-main">Benefits of Premium Membership</h3>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center h-100">
+              <i class="bi bi-building text-primary fs-2 mb-3 d-block"></i>
+              <h5 class="fw-bold text-main">Placement Drives</h5>
+              <p class="text-muted small mb-0">Exclusive placement drives and hiring events.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center h-100">
+              <i class="bi bi-sort-up-alt text-primary fs-2 mb-3 d-block"></i>
+              <h5 class="fw-bold text-main">Priority Applications</h5>
+              <p class="text-muted small mb-0">Applications receive higher visibility.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center h-100">
+              <i class="bi bi-clipboard-data text-primary fs-2 mb-3 d-block"></i>
+              <h5 class="fw-bold text-main">Career Role Fitment Assessment</h5>
+              <p class="text-muted small mb-0">Assess job readiness and fitment.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center h-100">
+              <i class="bi bi-briefcase-fill text-primary fs-2 mb-3 d-block"></i>
+              <h5 class="fw-bold text-main">Premium Jobs</h5>
+              <p class="text-muted small mb-0">Access opportunities unavailable to free members.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center h-100">
+              <i class="bi bi-eye-fill text-primary fs-2 mb-3 d-block"></i>
+              <h5 class="fw-bold text-main">Recruiter Visibility</h5>
+              <p class="text-muted small mb-0">Appear above regular applicants.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="glass-card p-4 text-center h-100">
+              <i class="bi bi-headset text-primary fs-2 mb-3 d-block"></i>
+              <h5 class="fw-bold text-main">Premium Candidate Support</h5>
+              <p class="text-muted small mb-0">Dedicated support assistance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUCCESS STORIES -->
+      <div class="glass-card p-4 p-md-5">
+        <h3 class="fw-bold mb-4 text-center text-main">Candidates Who Got Hired Faster</h3>
+        <div id="premiumTestimonials" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+              <i class="bi bi-quote fs-1 text-primary opacity-50 mb-3 d-block"></i>
+              <p class="lead text-muted fst-italic max-width-md mx-auto mb-4">"Within 3 weeks of upgrading, I received interview calls from multiple companies and secured an offer."</p>
+              <h5 class="fw-bold text-main mb-0">Sarah Jenkins</h5>
+              <p class="text-muted small mb-0">Stripe</p>
+              <p class="text-primary small fw-semibold">Software Engineer</p>
+            </div>
+            <div class="carousel-item">
+              <i class="bi bi-quote fs-1 text-primary opacity-50 mb-3 d-block"></i>
+              <p class="lead text-muted fst-italic max-width-md mx-auto mb-4">"The exclusive placement drives got me an interview I wouldn't have accessed otherwise. The premium investment paid off instantly."</p>
+              <h5 class="fw-bold text-main mb-0">David Chen</h5>
+              <p class="text-muted small mb-0">TechNova</p>
+              <p class="text-primary small fw-semibold">Data Analyst</p>
+            </div>
+            <div class="carousel-item">
+              <i class="bi bi-quote fs-1 text-primary opacity-50 mb-3 d-block"></i>
+              <p class="lead text-muted fst-italic max-width-md mx-auto mb-4">"I noticed a huge spike in my profile visibility. Recruiters actually started reaching out to me directly for hot jobs."</p>
+              <h5 class="fw-bold text-main mb-0">Elena Rostova</h5>
+              <p class="text-muted small mb-0">CyberShield</p>
+              <p class="text-primary small fw-semibold">Security Consultant</p>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#premiumTestimonials" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(0.5);"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#premiumTestimonials" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(0.5);"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+          <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Help</span>
+          <h2 class="display-5 fw-bold text-main mb-3">Frequently Asked Questions</h2>
+          <p class="text-muted mb-4">Have questions about the job application process, dashboards, or corporate tools? Find rapid answers here.</p>
+          <a href="html/contact.html" class="btn btn-premium-primary">Still have questions? Contact Us</a>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item accordion-item-premium">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button accordion-button-premium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Is JobSphere free to use for job seekers?
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body accordion-body-premium">
+                  Yes! JobSphere is 100% free for candidates to search for jobs, apply to companies, and access their custom applicant analytics dashboard.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item-premium">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button accordion-button-premium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  How do I create a stand-out profile?
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body accordion-body-premium">
+                  Complete all sections of your profile including skills, work history, and portfolio links. A complete profile increases visibility on the Admin Analytics dashboard by 85%.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item-premium">
+              <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button accordion-button-premium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Can I track the status of my applications?
+                </button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body accordion-body-premium">
+                  Absolutely. The Candidate Dashboard tracks your submissions in real-time, showing whether an application is Under Review, Interviewing, or Decided.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-5" data-aos="zoom-in">
+    <div class="container">
+      <div class="glass-card newsletter-card text-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="display-6 fw-bold mb-3 text-main">Get Career Alerts Direct</h2>
+            <p class="text-muted mb-4">Subscribe to our weekly dispatch of top SaaS jobs, tips, and insights. Unsubscribe at any time.</p>
+            <form class="newsletter-form d-flex flex-column flex-sm-row justify-content-center gap-2 max-width-md mx-auto" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+              <input type="email" class="form-control" placeholder="Enter your email address" required aria-label="Email address">
+              <button type="submit" class="btn btn-premium-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-4 mb-3">
+        <div class="col-lg-4 col-md-6">
+          <span class="footer-logo mb-3">
+            <i class="bi bi-globe-americas me-2"></i>JobSphere
+          </span>
+          <p class="text-muted mb-4">A futuristic, interactive SaaS job directory dashboard helping elites find premium roles globally.</p>
+          <div class="d-flex">
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon" aria-label="Github"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <h6 class="fw-bold mb-3 text-main">For Candidates</h6>
+          <a href="html/jobs.html" class="footer-link">Find Jobs</a>
+          <a href="html/login.html" class="footer-link">Candidate Portal</a>
+          <a href="html/register.html" class="footer-link">Register Now</a>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <h6 class="fw-bold mb-3 text-main">For Employers</h6>
+          <a href="html/login.html" class="footer-link">Admin Portal</a>
+          <a href="html/register.html" class="footer-link">Post a Job</a>
+          <a href="html/about.html" class="footer-link">Corporate Solutions</a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h6 class="fw-bold mb-3 text-main">Contact Support</h6>
+          <p class="text-muted small"><i class="bi bi-geo-alt me-2 text-primary"></i>100 Pine Street, San Francisco, CA</p>
+          <p class="text-muted small"><i class="bi bi-envelope me-2 text-primary"></i>support@jobsphere.io</p>
+          <p class="text-muted small"><i class="bi bi-phone me-2 text-primary"></i>+1 (415) 555-0199</p>
+        </div>
+      </div>
+      <div class="border-top border-opacity-10 border-secondary pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <p class="text-muted small mb-0">&copy; 2026 JobSphere Inc. All rights reserved. demonstration portal.</p>
+        <div class="d-flex gap-3 mt-3 mt-sm-0">
+          <a href="#" class="text-muted small footer-link">Privacy Policy</a>
+          <a href="#" class="text-muted small footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

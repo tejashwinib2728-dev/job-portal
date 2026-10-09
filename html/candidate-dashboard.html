@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobSphere - Candidate Dashboard</title>
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- Dashboard Sidebar -->
+    <aside class="dashboard-sidebar" id="dashboard-sidebar">
+      <div class="sidebar-brand">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+          <i class="bi bi-globe-americas me-2 text-primary"></i>
+          <span>JobSphere</span>
+        </a>
+      </div>
+
+      <ul class="sidebar-menu p-0 m-0">
+        <li>
+          <a href="#" class="sidebar-link active" data-view="dashboard">
+            <i class="bi bi-speedometer2"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-view="profile">
+            <i class="bi bi-person-workspace"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-view="applied">
+            <i class="bi bi-send-check"></i>
+            <span>Applied Jobs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-view="saved">
+            <i class="bi bi-bookmarks"></i>
+            <span>Saved Jobs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-view="notifications">
+            <i class="bi bi-bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-view="settings">
+            <i class="bi bi-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link text-danger" id="btn-candidate-logout">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="mt-auto pt-3 border-top border-color d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-2">
+          <div class="candidate-avatar company-logo-wrapper text-white bg-primary font-bold fs-7"
+            style="width: 38px; height: 38px;">AM</div>
+          <div>
+            <h6 class="candidate-name fw-bold mb-0 fs-7 text-main">Alex Mercer</h6>
+            <span class="candidate-title text-muted fs-9">Frontend Dev</span>
+          </div>
+        </div>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="dashboard-content">
+
+      <!-- Top header bar -->
+      <header class="d-flex justify-content-between align-items-center mb-5 pb-3 border-bottom border-color">
+        <div class="d-flex align-items-center gap-3">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle sidebar">
+            <i class="bi bi-list fs-4"></i>
+          </button>
+          <div>
+            <span class="text-muted small">Candidate Dashboard</span>
+            <h2 class="fw-bold text-main mb-0 h3">Welcome back, <span class="candidate-name">Alex</span>!</h2>
+          </div>
+        </div>
+        <div>
+          <a href="../index.html" class="btn btn-premium-secondary py-2 fs-7 me-2"><i class="bi bi-house me-2"></i>Portal
+            Home</a>
+          <a href="jobs.html" class="btn btn-premium-primary py-2 fs-7"><i class="bi bi-search me-2"></i>Find Jobs</a>
+        </div>
+      </header>
+
+      <!-- PANELS CONTAINER -->
+
+      <!-- 1. DASHBOARD OVERVIEW PANEL -->
+      <div class="dashboard-view-panel" id="panel-dashboard">
+        <div class="row g-4 mb-4">
+          <!-- Profile strength completeness -->
+          <div class="col-lg-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="fw-bold text-main mb-2"><i class="bi bi-shield-check me-2 text-primary"></i>Profile Strength
+                </h5>
+                <p class="text-muted small mb-3">Complete credentials to attract matches.</p>
+
+                <div class="d-flex justify-content-between text-muted fs-7 mb-1.5">
+                  <span>Profile status</span>
+                  <span class="fw-bold text-primary" id="profile-progress-text">80%</span>
+                </div>
+                <div class="progress progress-premium mb-3">
+                  <div class="progress-bar" role="progressbar" id="profile-progress-bar" style="width: 80%"
+                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+                <div class="fs-8 text-muted pt-2 border-top border-color" id="profile-academic-summary">
+                  <strong>Education:</strong> Stanford University (B.Tech)<br>
+                  <strong>Preferred Role:</strong> Frontend Engineer
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resume Status widget -->
+          <div class="col-lg-4">
+            <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="fw-bold text-main mb-2"><i class="bi bi-file-earmark-pdf me-2 text-danger"></i>Resume Status
+                </h5>
+                <p class="text-muted small mb-3">Sync your curriculum vitae settings for technical recruiters.</p>
+                <div class="d-flex flex-column gap-2 fs-7">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Uploaded:</span>
+                    <span class="fw-bold text-main text-truncate ms-2" id="resume-uploaded-name"
+                      style="max-width: 140px;">resume.pdf</span>
+                  </div>
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Last Updated:</span>
+                    <span class="fw-bold text-main text-nowrap" id="resume-updated-date">June 15, 2026</span>
+                  </div>
+                  <div class="d-flex justify-content-between text-muted align-items-center">
+                    <span>Visibility:</span>
+                    <span class="badge bg-success bg-opacity-10 text-success text-nowrap"
+                      id="resume-visibility-status">Recruiters Only</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3">
+                <button class="btn btn-premium-secondary btn-sm py-2 fs-8 w-100"
+                  id="btn-change-resume-visibility">Toggle Visibility</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick stats metrics cards -->
+          <div class="col-lg-4">
+            <div class="row g-2">
+              <div class="col-6">
+                <div class="glass-card p-2.5 text-center">
+                  <i class="bi bi-send text-primary fs-4 d-block mb-0.5"></i>
+                  <span class="fw-extrabold fs-5 text-main d-block" id="stat-applied-count">0</span>
+                  <span class="text-muted fs-9">Jobs Applied</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="glass-card p-2.5 text-center">
+                  <i class="bi bi-bookmark text-secondary fs-4 d-block mb-0.5"></i>
+                  <span class="fw-extrabold fs-5 text-main d-block" id="stat-saved-count">0</span>
+                  <span class="text-muted fs-9">Jobs Saved</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="glass-card p-2.5 text-center">
+                  <i class="bi bi-calendar2-check text-warning fs-4 d-block mb-0.5"></i>
+                  <span class="fw-extrabold fs-5 text-main d-block" id="stat-interviews-count">0</span>
+                  <span class="text-muted fs-9">Interviews</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="glass-card p-2.5 text-center">
+                  <i class="bi bi-award text-success fs-4 d-block mb-0.5"></i>
+                  <span class="fw-extrabold fs-5 text-main d-block" id="stat-offers-count">0</span>
+                  <span class="text-muted fs-9">Offers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Premium Plan Row -->
+        <div class="row g-4 mb-4">
+          <div class="col-12">
+            <div class="glass-card p-4 d-flex flex-column flex-md-row justify-content-between align-items-center"
+              style="border: 1px solid var(--primary-color);">
+              <div class="mb-3 mb-md-0" id="premium-plan-container">
+                <!-- Dynamic Content Injected by candidate.js -->
+              </div>
+              <div id="premium-plan-actions">
+                <a href="../index.html#premium-membership" class="btn btn-premium-primary py-2 px-4"
+                  id="btn-upgrade-premium">Upgrade to Premium</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Premium Features Row (Dynamically shown/hidden) -->
+        <div class="row g-4 mb-4 d-none" id="premium-features-row">
+          <!-- Feature 1: Premium Job Recommendations -->
+          <div class="col-12 col-md-6">
+            <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between premium-feature-card gold-accent">
+              <div>
+                <div class="d-flex align-items-center mb-3">
+                  <div class="office-icon-wrapper me-3" style="background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.15); color: var(--warning-color);">
+                    <i class="bi bi-star-fill text-warning fs-5"></i>
+                  </div>
+                  <h5 class="fw-bold text-main mb-0">Premium Job Recommendations</h5>
+                </div>
+                <p class="text-muted fs-8 mb-4">Access hand-picked premium opportunities from verified companies.</p>
+              </div>
+              <div>
+                <a href="jobs.html" class="btn btn-premium-primary py-2 px-4 fs-8 w-100 w-sm-auto">View Premium Jobs</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Feature 2: Career Role Fitment Assessment -->
+          <div class="col-12 col-md-6">
+            <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between premium-feature-card">
+              <div>
+                <div class="d-flex align-items-center mb-3 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <div class="office-icon-wrapper me-3" style="background: rgba(37, 99, 235, 0.08); border-color: rgba(37, 99, 235, 0.15); color: var(--primary-color);">
+                      <i class="bi bi-cpu text-primary fs-5"></i>
+                    </div>
+                    <h5 class="fw-bold text-main mb-0">Career Role Fitment</h5>
+                  </div>
+                  <span class="badge bg-primary bg-opacity-10 text-primary fs-9">AI Powered</span>
+                </div>
+                <p class="text-muted fs-8 mb-4">Analyze your skills and discover the most suitable career path.</p>
+              </div>
+              <div>
+                <button onclick="alert('Premium Assessment Coming Soon!')" class="btn btn-premium-secondary py-2 px-4 fs-8 w-100 w-sm-auto">Start Assessment</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analytical row (Chart.js) -->
+        <div class="row g-4 mb-4">
+          <div class="col-md-7">
+            <div class="glass-card p-4">
+              <h5 class="fw-bold mb-3 text-main">Application Trends</h5>
+              <div style="height: 250px;">
+                <canvas id="applicationsBarChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="glass-card p-4">
+              <h5 class="fw-bold mb-3 text-main">Submission Statuses</h5>
+              <div style="height: 250px;">
+                <canvas id="statusDoughnutChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Timeline & Recommendations -->
+        <div class="row g-4">
+          <!-- Timeline -->
+          <div class="col-md-6">
+            <div class="glass-card p-4 h-100">
+              <h5 class="fw-bold mb-4 text-main"><i class="bi bi-activity me-2 text-primary"></i>Recent Logs</h5>
+              <div id="activity-timeline-container" class="ps-2">
+                <!-- Dynamic Activity Timeline -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommendations -->
+          <div class="col-md-6">
+            <div class="glass-card p-4 h-100">
+              <h5 class="fw-bold mb-4 text-main"><i class="bi bi-lightning-charge me-2 text-warning"></i>Matching
+                Spheres</h5>
+              <div id="recommended-jobs-container">
+                <!-- Dynamic recommended items -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. PROFILE EDIT PANEL -->
+      <div class="dashboard-view-panel d-none" id="panel-profile">
+        <div class="glass-card p-4 p-sm-5 max-width-lg mx-auto">
+          <h4 class="fw-bold mb-2 text-main">Manage Profile Credentials</h4>
+          <p class="text-muted mb-4">Update your candidate coordinates for recruiters.</p>
+          <hr class="border-color mb-4">
+
+          <form id="profileForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="prof-name" class="form-label fw-semibold text-main fs-7">Full Name</label>
+                <input type="text" id="prof-name" class="form-control bg-transparent border-color text-main" required>
+              </div>
+              <div class="col-md-6">
+                <label for="prof-email" class="form-label fw-semibold text-main fs-7">Email Address</label>
+                <input type="email" id="prof-email" class="form-control bg-transparent border-color text-muted" readonly
+                  disabled>
+              </div>
+              <div class="col-md-12">
+                <label for="prof-title" class="form-label fw-semibold text-main fs-7">Professional Headline</label>
+                <input type="text" id="prof-title" class="form-control bg-transparent border-color text-main" required>
+              </div>
+              <div class="col-md-6">
+                <label for="prof-location" class="form-label fw-semibold text-main fs-7">Location</label>
+                <input type="text" id="prof-location" class="form-control bg-transparent border-color text-main"
+                  required>
+              </div>
+              <div class="col-md-6">
+                <label for="prof-skills" class="form-label fw-semibold text-main fs-7">Skills (comma separated)</label>
+                <input type="text" id="prof-skills" class="form-control bg-transparent border-color text-main"
+                  placeholder="React, TypeScript, CSS" required>
+              </div>
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-premium-primary">Save Profile Coordinates</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- 3. APPLIED JOBS PANEL -->
+      <div class="dashboard-view-panel d-none" id="panel-applied">
+        <div class="glass-card p-4">
+          <div class="d-flex justify-content-between align-items-start align-items-sm-center mb-4 flex-wrap gap-3">
+            <div>
+              <h4 class="fw-bold mb-1 text-main">Submitted Applications</h4>
+              <p class="text-muted fs-7 mb-0">Real-time status updates of your applications inside JobSphere.</p>
+            </div>
+            <div class="position-relative flex-shrink-0" style="min-width: 230px;">
+              <i class="bi bi-search position-absolute text-muted"
+                style="left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;"></i>
+              <input type="text" id="search-applied-input" class="form-control ps-5 py-2 fs-7"
+                placeholder="    Search applications...">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-hover table-premium border-0 m-0">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Company</th>
+                  <th>Applied Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="applied-table-body">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. SAVED JOBS PANEL -->
+      <div class="dashboard-view-panel d-none" id="panel-saved">
+        <div class="glass-card p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-start align-items-sm-center flex-wrap gap-3">
+            <div>
+              <h4 class="fw-bold mb-1 text-main">Saved Career Listings</h4>
+              <p class="text-muted fs-7 mb-0">A list of items you bookmarked for later consideration.</p>
+            </div>
+            <div class="position-relative flex-shrink-0" style="min-width: 230px;">
+              <i class="bi bi-search position-absolute text-muted"
+                style="left: 12px; top: 50%; transform: translateY(-50%); pointer-events: none;"></i>
+              <input type="text" id="search-saved-input" class="form-control ps-5 py-2 fs-7"
+                placeholder="   Search saved jobs...">
+            </div>
+          </div>
+        </div>
+        <div class="row g-3" id="saved-jobs-list">
+          <!-- Dynamic Saved Cards -->
+        </div>
+      </div>
+
+      <!-- 5. NOTIFICATIONS PANEL -->
+      <div class="dashboard-view-panel d-none" id="panel-notifications">
+        <div class="glass-card p-4 mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+          <div>
+            <h4 class="fw-bold mb-1 text-main">System Alerts</h4>
+            <p class="text-muted fs-7 mb-0">Corporate review logs and application state updates.</p>
+          </div>
+          <button id="btn-mark-all-read" class="btn btn-premium-secondary py-2 fs-8">
+            <i class="bi bi-check2-all me-2"></i>Mark All Read
+          </button>
+        </div>
+        <div id="notifications-list">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- 6. SETTINGS PANEL -->
+      <div class="dashboard-view-panel d-none" id="panel-settings">
+        <div class="glass-card p-4 p-sm-5 max-width-lg mx-auto">
+          <h4 class="fw-bold mb-2 text-main">Preferences & Settings</h4>
+          <p class="text-muted mb-4">Manage candidate system coordinates.</p>
+          <hr class="border-color mb-4">
+
+          <div class="d-flex flex-column gap-3.5">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="notifyEmail" checked>
+              <label class="form-check-label text-main fw-semibold fs-7" for="notifyEmail">Email Notifications</label>
+              <span class="text-muted d-block fs-8">Receive weekly alert emails on matches.</span>
+            </div>
+
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="profileVisibility" checked>
+              <label class="form-check-label text-main fw-semibold fs-7" for="profileVisibility">Profile
+                Visibility</label>
+              <span class="text-muted d-block fs-8">Allow registered employers to browse your credentials.</span>
+            </div>
+
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="alertMatches" checked>
+              <label class="form-check-label text-main fw-semibold fs-7" for="alertMatches">Immediate Alerts</label>
+              <span class="text-muted d-block fs-8">Receive in-app alerts as soon as relevant roles open.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/candidate.js"></script>
+</body>
+
+</html>

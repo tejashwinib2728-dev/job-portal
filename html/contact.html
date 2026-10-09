@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobSphere - Contact Us</title>
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top glass-navbar py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="../index.html">
+        <i class="bi bi-globe-americas me-2 text-primary"></i>
+        <span>JobSphere</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="bi bi-list fs-2 text-main"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jobs.html">Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="theme-toggle me-2" aria-label="Toggle dark/light mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <div id="auth-nav-container" class="d-flex align-items-center">
+            <a href="login.html" class="btn-premium-secondary me-2">Login</a>
+            <a href="register.html" class="btn-premium-primary">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="pt-5 mt-5 pb-4 bg-light bg-opacity-10 border-bottom border-color text-center text-sm-start">
+    <div class="container pt-4">
+      <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Support</span>
+      <h1 class="fw-bold display-5 text-main">Get in Touch</h1>
+      <p class="text-muted mb-0">Submit an inquiry or find our physical coordinates around the globe.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form & Map Row -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Left Column: Form -->
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="glass-card p-4 p-sm-5 h-100">
+            <h3 class="fw-bold text-main mb-2">Send Inquiry</h3>
+            <p class="text-muted mb-4 fs-7">Submit your coordinates, and our administrators will respond within 24
+              hours.</p>
+
+            <form id="contactForm" class="needs-validation" novalidate
+              onsubmit="event.preventDefault(); if(this.checkValidity()){alert('Your query has been recorded. Thank you for contacting JobSphere!'); this.reset(); this.classList.remove('was-validated');} else {this.classList.add('was-validated');}">
+              <div class="mb-3">
+                <label for="contact-name" class="form-label fw-semibold text-main fs-7">Full Name</label>
+                <input type="text" class="form-control bg-transparent border-color text-main" id="contact-name" required
+                  placeholder="Alex Mercer">
+                <div class="invalid-feedback">Full name is required.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="contact-email" class="form-label fw-semibold text-main fs-7">Email Address</label>
+                <input type="email" class="form-control bg-transparent border-color text-main" id="contact-email"
+                  required placeholder="name@example.com">
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="contact-subject" class="form-label fw-semibold text-main fs-7">Subject</label>
+                <input type="text" class="form-control bg-transparent border-color text-main" id="contact-subject"
+                  required placeholder="Corporate account queries">
+                <div class="invalid-feedback">Subject is required.</div>
+              </div>
+
+              <div class="mb-4">
+                <label for="contact-msg" class="form-label fw-semibold text-main fs-7">Message / Query</label>
+                <textarea class="form-control bg-transparent border-color text-main" id="contact-msg" rows="5" required
+                  placeholder="Type your inquiry details here..."></textarea>
+                <div class="invalid-feedback">Message content is required.</div>
+              </div>
+
+              <button type="submit" class="btn btn-premium-primary w-100 py-3">Transmit Query</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right Column: Coordinates & Glowing Map -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="glass-card p-4 p-sm-5 h-100 d-flex flex-column">
+            <h3 class="fw-bold text-main mb-4">Office Location</h3>
+            
+            <!-- Premium Office Information Card -->
+            <div class="office-info-card p-4 mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="office-icon-wrapper me-3">
+                  <i class="bi bi-building-fill text-primary fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold text-main mb-1">Rajajinagar Office</h5>
+                  <span class="text-muted fs-8">Bengaluru, Karnataka</span>
+                </div>
+              </div>
+              
+              <hr class="border-color my-3 opacity-10">
+              
+              <div class="office-details">
+                <div class="d-flex align-items-start mb-3">
+                  <i class="bi bi-geo-alt-fill text-primary me-3 mt-1 fs-7"></i>
+                  <div>
+                    <p class="text-body mb-0 leading-relaxed address-text fs-7">
+                      No. 114, 1st Main Road<br>
+                      1st Block, Rajajinagar<br>
+                      Rajkumar Road<br>
+                      Bengaluru - 560010
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-telephone-fill text-primary me-3 fs-7"></i>
+                  <a href="tel:+918861908889" class="phone-link fs-7 fw-semibold">
+                    +91 88619 08889
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Embedded Google Map -->
+            <div class="map-container-wrapper shadow-sm mt-auto">
+              <iframe 
+                src="https://maps.google.com/maps?q=No.%20114,%201st%20Main%20Road,%201st%20Block,%20Rajajinagar,%20Rajkumar%20Road,%20Bengaluru%20-%20560010&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Re-used for completeness) -->
+  <section class="py-5 bg-light bg-opacity-10 border-top border-color">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Help Desk</span>
+        <h2 class="fw-bold text-main">Frequently Asked Questions</h2>
+        <p class="text-muted">Simple answers to our recruitment directory operations.</p>
+      </div>
+
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-lg-8">
+          <div class="accordion" id="faqAccordionContact">
+            <div class="accordion-item accordion-item-premium">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button accordion-button-premium" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Is JobSphere free to use for job seekers?
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#faqAccordionContact">
+                <div class="accordion-body accordion-body-premium">
+                  Yes! JobSphere is 100% free for candidates to search for jobs, apply to companies, and access their
+                  custom applicant analytics dashboard.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item accordion-item-premium">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button accordion-button-premium collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                  aria-controls="collapseTwo">
+                  How do I create a stand-out profile?
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#faqAccordionContact">
+                <div class="accordion-body accordion-body-premium">
+                  Complete all sections of your profile including skills, work history, and portfolio links. A complete
+                  profile increases visibility on the Admin Analytics dashboard by 85%.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div
+        class="border-top border-opacity-10 border-secondary pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <p class="text-muted small mb-0">&copy; 2026 JobSphere Inc. All rights reserved. demonstration portal.</p>
+        <div class="d-flex gap-3 mt-3 mt-sm-0">
+          <a href="#" class="text-muted small footer-link">Privacy Policy</a>
+          <a href="#" class="text-muted small footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

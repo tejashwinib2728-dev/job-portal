@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobSphere - About Us</title>
+  
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top glass-navbar py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="../index.html">
+        <i class="bi bi-globe-americas me-2 text-primary"></i>
+        <span>JobSphere</span>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="bi bi-list fs-2 text-main"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jobs.html">Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center gap-2">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="theme-toggle me-2" aria-label="Toggle dark/light mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+          
+          <div id="auth-nav-container" class="d-flex align-items-center">
+            <a href="login.html" class="btn-premium-secondary me-2">Login</a>
+            <a href="register.html" class="btn-premium-primary">Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="pt-5 mt-5 pb-4 bg-light bg-opacity-10 border-bottom border-color text-center text-sm-start">
+    <div class="container pt-4">
+      <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Our Story</span>
+      <h1 class="fw-bold display-5 text-main">Mapping SaaS Careers</h1>
+      <p class="text-muted mb-0">Learn how JobSphere became a premium hub for developers and SaaS companies.</p>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6" data-target="fade-right" data-aos="fade-right">
+          <div class="glass-card p-5 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-rocket-takeoff text-primary fs-2 me-3"></i>
+              <h3 class="fw-bold text-main mb-0">Our Mission</h3>
+            </div>
+            <p class="text-muted leading-relaxed mb-0">
+              To democratize technical recruitment by building clean visual channels. We enable applicants to bypass bloated pipelines and match immediately with verified engineering team leaders.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="glass-card p-5 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-eye text-secondary fs-2 me-3"></i>
+              <h3 class="fw-bold text-main mb-0">Our Vision</h3>
+            </div>
+            <p class="text-muted leading-relaxed mb-0">
+              We envision a borderless tech talent network guided by interactive data widgets. Our portal serves as the unified dashboard for candidate transparency and recruiter speed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="py-5 bg-light bg-opacity-10">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Timeline</span>
+        <h2 class="fw-bold text-main">Our Milestones</h2>
+        <p class="text-muted">A summary of how we grew from a student demo to a high-end interface.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <!-- Timeline elements -->
+          <div class="glass-card p-4 p-sm-5">
+            <div class="timeline-activity">
+              <div class="timeline-dot"></div>
+              <span class="fs-6 fw-bold text-main d-block">Q1 2024 - Concept Stage</span>
+              <span class="text-muted fs-7 d-block mt-1">Established core requirements for visual job filters and glassmorphism themes. Mock layout testing initiated.</span>
+            </div>
+            <div class="timeline-activity">
+              <div class="timeline-dot bg-warning"></div>
+              <span class="fs-6 fw-bold text-main d-block">Q3 2025 - Three.js Parallax & Chart integrations</span>
+              <span class="text-muted fs-7 d-block mt-1">Added background Canvas interactions and synced candidate submission logs with Chart.js reports.</span>
+            </div>
+            <div class="timeline-activity">
+              <div class="timeline-dot bg-success"></div>
+              <span class="fs-6 fw-bold text-main d-block">Q2 2026 - Academic Launch</span>
+              <span class="text-muted fs-7 d-block mt-1">Released frontend-only academic demo, providing preloaded jobs databases and full CRUD simulation capabilities.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-2">Executive</span>
+        <h2 class="fw-bold text-main">The Sphere Founders</h2>
+        <p class="text-muted">The core academic engineering group responsible for the JobSphere portal.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="glass-card team-card h-100">
+            <div class="team-img-container">
+              <img src="../img/Tanz.jpeg" alt="Tanjila B" class="team-img" height="240px">
+            </div>
+            <div class="p-4 text-center d-flex flex-column justify-content-between team-card-body">
+              <div>
+                <h5 class="fw-bold text-main mb-1">Tanjila B</h5>
+                <span class="text-primary d-block small mb-3">Frontend Developer</span>
+                <p class="text-muted fs-8 mb-4">Responsible for building responsive UI components using HTML, CSS, Bootstrap and JavaScript.</p>
+              </div>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="social-icon m-0" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-icon m-0" aria-label="Github"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card team-card h-100">
+            <div class="team-img-container">
+              <img src="../img/Thanzz.jpeg" alt="Thanusha M H" class="team-img">
+            </div>
+            <div class="p-4 text-center d-flex flex-column justify-content-between team-card-body">
+              <div>
+                <h5 class="fw-bold text-main mb-1">Thanusha M H</h5>
+                <span class="text-primary d-block small mb-3">Web Developer</span>
+                <p class="text-muted fs-8 mb-4">Develops responsive and dynamic web applications using technologies with a focus on performance, usability.</p>
+              </div>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="social-icon m-0" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-icon m-0" aria-label="Github"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card team-card h-100">
+            <div class="team-img-container">
+              <img src="../img/Priii.jpeg" alt="Priyanka C" class="team-img">
+            </div>
+            <div class="p-4 text-center d-flex flex-column justify-content-between team-card-body">
+              <div>
+                <h5 class="fw-bold text-main mb-1">Priyanka C</h5>
+                <span class="text-primary d-block small mb-3">Full Stack Developer</span>
+                <p class="text-muted fs-8 mb-4">Bridges the gap between frontend interfaces and backend services, managing end-to-end development.</p>
+              </div>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="social-icon m-0" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-icon m-0" aria-label="Github"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card team-card h-100">
+            <div class="team-img-container">
+              <img src="../img/Ayyan.jpeg" alt="M A Abbas" class="team-img">
+            </div>
+            <div class="p-4 text-center d-flex flex-column justify-content-between team-card-body">
+              <div>
+                <h5 class="fw-bold text-main mb-1">M A Abbas</h5>
+                <span class="text-primary d-block small mb-3">UI/UX Designer</span>
+                <p class="text-muted fs-8 mb-4">Creates modern, intuitive user interfaces and layouts with a focus on premium aesthetics and usability.</p>
+              </div>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="social-icon m-0" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-icon m-0" aria-label="Github"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="border-top border-opacity-10 border-secondary pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <p class="text-muted small mb-0">&copy; 2026 JobSphere Inc. All rights reserved. demonstration portal.</p>
+        <div class="d-flex gap-3 mt-3 mt-sm-0">
+          <a href="#" class="text-muted small footer-link">Privacy Policy</a>
+          <a href="#" class="text-muted small footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

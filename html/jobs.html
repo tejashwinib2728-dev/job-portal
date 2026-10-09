@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobSphere - Find Careers</title>
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Fixed Header Wrapper -->
+  <div class="fixed-top" style="z-index: 1030;">
+    <!-- Sticky Premium Strip -->
+    <div class="bg-warning text-dark text-center py-2" style="cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
+      onclick="window.location.href='../index.html#premium-membership'">
+      <span class="fs-6"><i class="bi bi-fire text-danger me-1"></i> <strong>Get Shortlisted Faster with JobSphere
+          Premium</strong></span> <span class="mx-2 d-none d-lg-inline">|</span> <span
+        class="d-none d-lg-inline small">Apply to Premium Jobs • Placement Drives • Priority Visibility</span> <span
+        class="ms-3 fw-bold d-none d-md-inline">Upgrade from just ₹649</span>
+      <button onclick="window.location.href='../index.html#premium-membership'; event.stopPropagation();"
+        class="btn btn-dark btn-sm ms-3 fw-bold">Upgrade Now</button>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light glass-navbar py-3 position-relative">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+          <i class="bi bi-globe-americas me-2 text-primary"></i>
+          <span>JobSphere</span>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bi bi-list fs-2 text-main"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="jobs.html">Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-2">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" class="theme-toggle me-2" aria-label="Toggle dark/light mode">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+
+            <div id="auth-nav-container" class="d-flex align-items-center">
+              <a href="login.html" class="btn-premium-secondary me-2">Login</a>
+              <a href="register.html" class="btn-premium-primary">Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Job listings header -->
+  <section class="pt-5 mt-5 pb-4 bg-light bg-opacity-10 border-bottom border-color"
+    style="padding-top: 6rem !important;">
+    <div class="container pt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-2 fs-7">
+          <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none">Home</a></li>
+          <li class="breadcrumb-item active text-muted" aria-current="page">Jobs Directory</li>
+        </ol>
+      </nav>
+      <h1 class="fw-bold display-5 text-main">Explore Active Careers</h1>
+      <p class="text-muted mb-0">Use the smart dynamic sliders and checks below to filter high-paying positions.</p>
+    </div>
+  </section>
+
+  <!-- Main Grid Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Left Filter Sidebar -->
+        <div class="col-lg-4 col-xl-3">
+          <div class="glass-card p-4 position-sticky" style="top: 100px;">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom border-color pb-2">
+              <h5 class="fw-bold mb-0 text-main"><i class="bi bi-funnel me-2 text-primary"></i>Filters</h5>
+              <button class="btn btn-sm text-primary p-0 fw-semibold fs-7" id="clear-filters-btn"
+                onclick="document.getElementById('reset-filters-btn')?.click();">Clear All</button>
+            </div>
+
+            <!-- Search Text -->
+            <div class="mb-4">
+              <label for="filter-search" class="filter-section-title">Keyword Search</label>
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-end-0 border-color"><i
+                    class="bi bi-search text-primary"></i></span>
+                <input type="text" id="filter-search"
+                  class="form-control bg-transparent border-start-0 border-color text-main"
+                  placeholder="Title, skills, company...">
+              </div>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="mb-4">
+              <label for="filter-location" class="filter-section-title">Location</label>
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-end-0 border-color"><i
+                    class="bi bi-geo-alt text-primary"></i></span>
+                <input type="text" id="filter-location"
+                  class="form-control bg-transparent border-start-0 border-color text-main"
+                  placeholder="City or Remote">
+              </div>
+            </div>
+
+            <!-- Salary Range Slider -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label for="filter-salary-range" class="filter-section-title mb-0">Min Salary</label>
+                <span id="salary-value" class="fw-bold text-primary">$50,000</span>
+              </div>
+              <input type="range" class="form-range" id="filter-salary-range" min="50000" max="250000" step="10000"
+                value="50000">
+              <div class="d-flex justify-content-between text-muted fs-8">
+                <span>$50k</span>
+                <span>$250k</span>
+              </div>
+            </div>
+
+            <!-- Experience Range Slider -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label for="filter-exp-range" class="filter-section-title mb-0">Max Experience</label>
+                <span id="experience-value" class="fw-bold text-primary">Any Experience</span>
+              </div>
+              <input type="range" class="form-range" id="filter-exp-range" min="0" max="10" step="1" value="0">
+              <div class="d-flex justify-content-between text-muted fs-8">
+                <span>Any</span>
+                <span>10 Yrs Max</span>
+              </div>
+            </div>
+
+            <!-- Job Type Checkboxes -->
+            <div class="mb-4">
+              <label class="filter-section-title">Job Type</label>
+              <div id="job-type-filters" class="d-flex flex-column gap-2.5">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Full-time" id="type-ft">
+                  <label class="form-check-label text-muted fs-7" for="type-ft">Full-time</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Part-time" id="type-pt">
+                  <label class="form-check-label text-muted fs-7" for="type-pt">Part-time</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Remote" id="type-rm">
+                  <label class="form-check-label text-muted fs-7" for="type-rm">Remote</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Contract" id="type-ct">
+                  <label class="form-check-label text-muted fs-7" for="type-ct">Contract</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category Checkboxes -->
+            <div class="mb-2">
+              <label class="filter-section-title">Categories</label>
+              <div id="category-filters" class="d-flex flex-column gap-2.5">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="tech" id="cat-tech">
+                  <label class="form-check-label text-muted fs-7" for="cat-tech">Technology & Software</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="design" id="cat-design">
+                  <label class="form-check-label text-muted fs-7" for="cat-design">Design & Creative</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="marketing" id="cat-mkt">
+                  <label class="form-check-label text-muted fs-7" for="cat-mkt">Marketing & Sales</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="finance" id="cat-fin">
+                  <label class="form-check-label text-muted fs-7" for="cat-fin">Finance & Accounting</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="hr" id="cat-hr">
+                  <label class="form-check-label text-muted fs-7" for="cat-hr">Human Resources</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="pm" id="cat-pm">
+                  <label class="form-check-label text-muted fs-7" for="cat-pm">Product Management</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content Area -->
+        <div class="col-lg-8 col-xl-9">
+          <!-- Sort & Summary Bar -->
+          <div
+            class="glass-card p-3 mb-4 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3">
+            <div class="text-muted fs-7">
+              Showing <span class="fw-bold text-main" id="showing-count">0-0</span> of <span class="fw-bold text-main"
+                id="total-count">0</span> active vacancies.
+            </div>
+
+            <div class="d-flex align-items-center gap-2">
+              <label for="sort-select" class="text-muted fs-7 text-nowrap mb-0">Sort By:</label>
+              <select id="sort-select" class="form-select form-select-sm bg-transparent text-main border-color"
+                style="width: auto; cursor: pointer;">
+                <option value="latest">Latest Postings</option>
+                <option value="salary-desc">Salary: High to Low</option>
+                <option value="salary-asc">Salary: Low to High</option>
+                <option value="exp-asc">Experience: Junior first</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Jobs list (Rendered dynamically) -->
+          <div id="jobs-list-container">
+            <!-- Dynamic Cards -->
+          </div>
+
+          <!-- Pagination -->
+          <nav aria-label="Jobs pagination" class="mt-5">
+            <ul class="pagination justify-content-center" id="pagination-container">
+              <!-- Dynamic Pages -->
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div
+        class="border-top border-opacity-10 border-secondary pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <p class="text-muted small mb-0">&copy; 2026 JobSphere Inc. All rights reserved. demonstration portal.</p>
+        <div class="d-flex gap-3 mt-3 mt-sm-0">
+          <a href="#" class="text-muted small footer-link">Privacy Policy</a>
+          <a href="#" class="text-muted small footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/jobs.js"></script>
+</body>
+
+</html>
